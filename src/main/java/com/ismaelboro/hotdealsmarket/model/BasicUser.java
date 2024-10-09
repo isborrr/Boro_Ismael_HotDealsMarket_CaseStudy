@@ -4,7 +4,9 @@ package com.ismaelboro.hotdealsmarket.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.antlr.v4.runtime.misc.NotNull;
 
+import javax.management.relation.Role;
 import java.security.PrivateKey;
 
 @Data
@@ -21,9 +23,14 @@ public class BasicUser {
     private String  last_name;
     private String email;
     private String password ;
-    private int phone ;
+    @NotNull
+    private String phone ;
     @Column(name = "basic_users_type")
     @Enumerated(EnumType.STRING)
-    private String  basicUserType ;
+    private BasicUserType basicUserType ;
+
+
+
 //    private String  basicUserType ENUM('Customer', 'Admin') ;
 }
+

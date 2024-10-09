@@ -13,8 +13,8 @@ import java.util.Optional;
 public class BasicUserService {
     @Autowired
     private BasicUserRepository basicUserRepository;
-    @Autowired
-    private UserDetailsServiceAutoConfiguration userDetailsServiceAutoConfiguration;
+//    @Autowired
+//    private UserDetailsServiceAutoConfiguration userDetailsServiceAutoConfiguration;
 
     public List<BasicUser> getAllUsers(){
         return basicUserRepository.findAll();
@@ -33,17 +33,17 @@ public class BasicUserService {
     }
 
 
-    public BasicUser updateProduct(Long id, BasicUser basicUser) {
+    public BasicUser updateUser(Long id, BasicUser updatedBasicUser) {
         return basicUserRepository.findById(id)
-                .map(product -> {
-                    product.setFirst_name(basicUser.getFirst_name());
-                    product.setLast_name(basicUser.getLast_name());
-                    product.setEmail(basicUser.getBasicUserType());
-                    product.setBasicUserType(basicUser.getBasicUserType());
-                    product.setPassword(basicUser.getPassword());
-                    product.setPhone(basicUser.getPhone());
-                    return basicUserRepository.save(product);
+                .map(basicUser -> {
+                    basicUser.setFirst_name(updatedBasicUser.getFirst_name());
+                    basicUser.setLast_name(updatedBasicUser.getLast_name());
+                    basicUser.setEmail(updatedBasicUser.getEmail());
+                    basicUser.setBasicUserType(updatedBasicUser.getBasicUserType());
+                    basicUser.setPassword(updatedBasicUser.getPassword());
+                    basicUser.setPhone(updatedBasicUser.getPhone());
+                    return basicUserRepository.save(basicUser);
                 })
-                .orElseThrow(() -> new RuntimeException("Product not found"));
+                .orElseThrow(() -> new RuntimeException("user not found"));
     }
 }
