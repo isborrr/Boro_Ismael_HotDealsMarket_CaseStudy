@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Hot Deals Market</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="../css/admin.css">
+
+  </head>
+
+  <body>
+      <!-- <p th:text="#{home.welcome}">Welcome to our grocery store!</p> -->
+       <header>
+        <div class="header-top">
+            <div class="company-name-and-logo">
+                <div class="logo">
+                    <img class="compny-logo" src="../images/company-logo.png" alt="Company logo">
+                </div>
+                <div class="company-name">Hot Deals Market </div>
+
+            </div>
+
+            <button class="sign-out">Sign Out</button>
+        </div>
+        <div class="welcome-message">Welcome: Alice</div>
+        <div class="header-bottom">
+            <div class="header-bottom-text"> <pre></pre></div>
+        </div>
+       </header>
+       <navbar>
+            <button class="homepage-btn">Home page </button>
+       </navbar>
+       <main>
+        <div class="main-header">
+            <div class="main-header-description">
+                The leading American company of essential products
+            </div>
+
+        </div>
+        <div class="replenish-products">
+            <h3>Replenish products</h3>
+        </div>
+        <div class="product-cart-container">
+            <table>
+                <thead>
+                  <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Add/Subtract</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr>
+                    <td>
+                        <form>
+                            <label for="machines">Select product:</label>
+                            <select id="machines" name="machines">
+                                <option value="excavator">Excavator</option>
+                                <option value="bulldozer">Bulldozer</option>
+                                <option value="wheel_loader">Wheel Loader</option>
+                                <option value="grader">Grader</option>
+                            </select>
+                        </form>
+                    </td>
+                    <td>
+                        <form>
+                            <label for="name"></label>
+                            <input type="number" id="name" name="name" placeholder="Enter quantity here">
+                        </form>
+                    </td>
+                    <td>
+                      <button class="save-button">Save</button>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+        </div>
+
+        <hr class="new4">
+        <div class="estimation-header">
+            <h3>Estimation</h3>
+        </div>
+        <div class="estimation-cart-container">
+            <table>
+                <thead>
+                  <tr>
+                    <th>Total buying price</th>
+                    <th>Total selling price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>$31,666.00</td>
+                    <td>$87.323.00</td>
+                  </tr>
+                  <tr class="total_price">
+                    <td colspan="4" class="total"><span> Profit estimate: $21,000.00</span></td>
+                    <!-- <td colspan="3">$60.00</td> -->
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+
+        <hr class="new4">
+        <div class="estimation-header">
+            <h3>Customers table</h3>
+        </div>
+        <div class="estimation-cart-container">
+            <table>
+                <thead>
+                  <tr>
+                    <th>Names</th>
+                    <th>Emails</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Jhon Dee</td>
+                    <td>John.dea@yahoo.com</td>
+                  </tr>
+                  <tr class="total_price">
+                    <td colspan="4" class="total"><span> Total customer number: 300</span></td>
+                    <!-- <td colspan="3">$60.00</td> -->
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+       </main>
+       <footer>
+            <div class="back-to-top" >
+            </div>
+
+        <div class="partner-social-parent-container">
+             <div class="logo">
+                <img class="compny-logo" src="../images/company-logo.png" alt="Company logo">
+             </div>
+            <div class="partner-and-social-container">
+                <div class="partner-note">Trusted by Businesses partner & Professionals</div>
+                <ul class="unorder-list">
+                    <li>Hotels & Motels</li> <li>Restaurants & Cafes</li>  <li>Cleaning Services</li>
+                    <li>Office Buildings </li>  <li>Religious Institutions </li> <li>Gyms & Fitness Centers</li>
+                    <li>Healthcare Facilities</li>        <li>Event Venues</li> <li>Educational Institutions</li>
+                </ul>
+                <br>
+                <div class="partnership-reason">Are choosing us for their essential     home  products, saving tons of money on top brands!"</div>
+
+                <div class="social-media">
+                    <div class="s-media-co">
+                        <img class="social-media-logo" src="../socialmedia/facebook_icon.png" alt="social media logo">
+                    </div>
+                    <div class="s-media-co">
+                        <img class="social-media-logo" src="../socialmedia/instagram_icon.png" alt="social media logo">
+                    </div>
+                    <div class="s-media-co">
+                        <img class="social-media-logo" src="../socialmedia/twitter_icon.png" alt="social media logo">
+                    </div>
+                    <div class="s-media-co">
+                        <img class="social-media-logo" src="../socialmedia/youtube_icon.png" alt="social media logo">
+                    </div>
+
+                </div>
+            </div>
+            <div class="company-headquarter">
+                <img class="headquarter-img" src="../images/strore-front-pic.png" alt="Company headquarter">
+            </div>
+        </div>
+       </footer>
+       <script src="../javascript/admin.js"></script>
+  </body>
+
+</html>

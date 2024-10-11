@@ -34,7 +34,7 @@ public class ProductCategoryService {
     public ProductCategory updateProductCategory(Long id, ProductCategory updatedProductCategory){
             return productCategoryRepository.findById(id)
                     .map(productCategory -> {
-                        productCategory.setCategory_name(updatedProductCategory.getCategory_name());
+                        productCategory.setCategoryName(updatedProductCategory.getCategoryName());
                         return productCategoryRepository.save(productCategory);
                     })
                     .orElseThrow(() -> new RuntimeException("Product category not found"));

@@ -1,8 +1,7 @@
 package com.ismaelboro.hotdealsmarket.service;
 
 
-import com.ismaelboro.hotdealsmarket.model.BasicUser;
-import com.ismaelboro.hotdealsmarket.model.CustomerCart;
+import com.ismaelboro.hotdealsmarket.model.Cart;
 import com.ismaelboro.hotdealsmarket.repository.CustomerCartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,15 +15,15 @@ public class CustomerCartService {
     private CustomerCartRepository customerCartRepository;
 
     //return a list containing all the customer carts
-    public List<CustomerCart> getAllCustomerCart(){
+    public List<Cart> getAllCustomerCart(){
         return customerCartRepository.findAll();
     }
 
-    public Optional<CustomerCart> getCustomerCartById(Long id){
+    public Optional<Cart> getCustomerCartById(Long id){
         return customerCartRepository.findById(id);
     }
 
-    public CustomerCart createCustomerCart(CustomerCart customerCart){
+    public Cart createCustomerCart(Cart customerCart){
         return customerCartRepository.save(customerCart);
     }
 
@@ -32,7 +31,7 @@ public class CustomerCartService {
         customerCartRepository.deleteById(id);
     }
 
-    public CustomerCart updateCustomerCart(Long id, CustomerCart updatedCustomerCart) {
+    public Cart updateCustomerCart(Long id, Cart updatedCustomerCart) {
         return customerCartRepository.findById(id)
                 .map(customerCart -> {
                     customerCart.setCustomerId(updatedCustomerCart.getCustomerId());

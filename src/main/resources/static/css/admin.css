@@ -1,0 +1,408 @@
+body {
+    margin: 0; /* Remove default body margin */
+    font-weight:200;
+  }
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Apply box-sizing to all elements */
+* {
+    box-sizing: border-box;
+}
+
+.header-top{
+    background-color:#A7A9B6;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.welcome-message{
+    background-color:#A7A9B6;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 18px;
+    display: flex;
+    justify-content: flex-end; /* Aligns items to the right */
+    margin-top: -2rem;
+    padding-right: 1rem;
+}
+.company-name-and-logo{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+}
+
+.logo{
+    width: 100px;
+    height: 70px;
+}
+.company-name{
+    color: #ffffff;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 38px;
+    padding: 20px;
+
+}
+
+.compny-logo{
+    width: 100px;
+    height: 70px;
+}
+
+.header-bottom{
+    background-color: #E20074;
+    text-align: center;
+    color: white;
+    display: flex; /* Use Flexbox for easy centering */
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the text */
+
+
+}
+.header-bottom-text{
+        font-family: "Merriweather", serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 38px;
+        padding: 20px;
+
+}
+navbar{
+    background-color: #626578;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.main-header{
+    height: 4rem;
+    background-color: #D9D9D9;
+    width: 90%;
+    margin: auto;
+    /* margin-top: 1rem; */
+    text-align: center;
+
+    /* margin-top: 2rem; */
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 34px;
+    color: #000000;
+}
+
+
+
+
+
+
+  .sign-out{
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+    width: fit-content;
+    height: 2.5rem;
+    background-color: #5e5f63;
+    padding: 10px 7px;
+    color: #ffffff;
+    border-radius: 7px;
+    text-decoration: none;
+    /* box-shadow: 0 1px 0 #A10084 inset; */
+    font-weight: 600;
+    border-style: none;
+  }
+
+ .sign-out:hover{
+    background-color: #c20178;
+    box-shadow: 0 2px 0 #e841c9 inset;
+    cursor: pointer;
+  }
+
+ .homepage-btn{
+    background-color: #3E404F;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  .homepage-btn:hover{
+    background-color: #737482;
+  }
+
+/* table */
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-cart-container, .estimation-cart-container , .estimation-header{
+    margin: 0 auto; /* Centers the grid container horizontally */
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 4 cards per row */
+    /* padding: 35px; */
+    border-radius: 10px;
+    width: 70%; /* The grid container occupies 80% of the width */
+    justify-content: center; /* Centers the grid items horizontally */
+    text-align: center;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.replenish-products{
+    margin: 0 auto; /* Centers the grid container horizontally */
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 4 cards per row */
+    /* padding: 35px; */
+    border-radius: 10px;
+    justify-content: center; /* Centers the grid items horizontally */
+    text-align: center;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+    margin-bottom: 0.3rem;
+}
+h3{
+    font-size: xx-large;
+    margin-bottom: 0.5rem;
+
+}
+
+
+  th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #dddddd;
+  }
+
+  th {
+    background-color: #3E404F;
+    color: white;
+  }
+
+  .total{
+    text-align: right;
+}
+.total span{
+    background-color: #c9e0d28e;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: x-large;
+    color: #000000;
+    text-align: right;
+    padding: 10px;
+}
+
+
+  .save-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+
+.save-button{
+    font-size:large;
+}
+.save-button:hover{
+    background-color: rgba(0, 0, 255, 0.521);
+    cursor: pointer;
+}
+
+
+/* table */
+
+
+footer{
+    margin-top: 2rem;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.back-to-top{
+    height: 4rem;
+    text-align: center;
+    background-color: #0f1111;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 15px;
+}
+
+.back-to-top-text:hover{
+    background-color: #0f1111dd;
+    cursor: pointer;
+    color: gray;
+}
+
+.partner-social-parent-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #626578;
+    color: white;
+}
+.partner-note{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.unorder-list{
+    margin: 0 auto; /* Centers the grid container horizontally */
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 4 cards per row */
+    gap: 10px; /* Spacing between the cards */
+
+    justify-content: center; /* Centers the grid items horizontally */
+}
+li{
+    list-style-type: none;
+    font-size: x-large;
+    background-color: #8a587777;
+    border-radius: 5px;
+
+
+    box-shadow: 0 1rem 2rem hsl(0 0% 0% / 20%);
+    /* background-color: #05092000; */
+    color: hsl(0, 0%, 100%);
+    line-height: 1.5;
+    font-size: 1.5rem;
+    font-weight: 300;
+    place-items: center;
+    text-align: center;
+    border: 1px solid hsl(0 0% 83%);
+    box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+}
+.partnership-reason{
+    text-align: center;
+
+    box-shadow: 0 1rem 2rem hsl(0 0% 0% / 20%);
+    /* background-color: #05092000; */
+    color: hsl(0, 0%, 100%);
+    line-height: 1.5;
+    font-size: 1.5rem;
+    font-weight: 300;
+    place-items: center;
+    text-align: center;
+    /* border: 1px solid hsl(0 0% 83%); */
+    box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+}
+.social-media{
+    display: flex;
+    flex-direction: row;
+
+    margin: 0 auto; /* Centers the grid container horizontally */
+    margin-top: 1rem;
+    gap: 20px; /* Spacing between the cards */
+    width: 60%; /* The grid container occupies 80% of the width */
+    justify-content: center; /* Centers the grid items horizontally */
+}
+.social-media-logo{
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 5px;
+    padding: 5px; /* Adjust as needed */
+    width: 50px;
+    height: 50px;
+    margin: 0.5rem;
+}
+.social-media-logo:hover{
+    cursor: pointer;
+    border: 2px solid white; /* Invisible border */
+    border-radius: 5px;
+    padding: 5px; /* Adjust as needed */
+
+}
+
+.compny-logo{
+      width: 70px;
+      height: 50px;
+}
+.headquarter-img{
+      width: 200px;
+      height: 200px;
+}
+
+
+
+/*  */
+
+  /* For small views */
+  @media (max-width:1300px) {
+    .partner-social-parent-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: #626578;
+        color: white;
+    }
+    .headquarter-img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 400px;
+        height: 300px;
+        border-radius: 15px;
+
+    }
+    .unorder-list{
+        list-style-type: none; /* Remove bullet points */
+        padding: 0;
+        margin: 0 auto; /* Center the ul */
+        text-align: center; /* Center the list items inside the ul */
+
+    }
+  }
+
+  @media (max-width: 1200px) {
+
+
+
+
+
+}
+@media (max-width: 900px) {
+
+
+}
+
+@media (max-width: 866px) {
+
+
+}
+
+/* For small screens (1 item per row) */
+
+
+
+@media (max-width: 666px) {
+
+
+}
+
+@media (max-width: 547px) {
+
+}
+@media (max-width: 428px) {
+
+}

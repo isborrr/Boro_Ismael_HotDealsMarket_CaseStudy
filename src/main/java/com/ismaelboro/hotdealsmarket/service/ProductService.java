@@ -33,15 +33,15 @@ public class ProductService {
     public Product updateProduct(Long id, Product updatedProduct){
         return productRepository.findById(id)
                 .map(product -> {
-                    product.setName(updatedProduct.getName());
-                    product.setBuying_price(updatedProduct.getBuying_price());
-                    product.setSelling_price(updatedProduct.getSelling_price());
-                    product.setMarket_price(updatedProduct.getMarket_price());
-                    product.setStock_quantity(updatedProduct.getStock_quantity());
+                    product.setProductNameAndSize(updatedProduct.getProductNameAndSize());
+                    product.setBuyingPrice(updatedProduct.getBuyingPrice());
+                    product.setSellingPrice(updatedProduct.getSellingPrice());
+                    product.setMarketPrice(updatedProduct.getMarketPrice());
+                    product.setStockQuantity(updatedProduct.getStockQuantity());
                     product.setProductCategory(updatedProduct.getProductCategory());
-                    product.setDiscount_rate(updatedProduct.getDiscount_rate());
-                    product.setDiscount_min_quantity(updatedProduct.getDiscount_min_quantity());
-                    product.setProduct_image_path(updatedProduct.getProduct_image_path());
+                    product.setDiscountRate(updatedProduct.getDiscountRate());
+                    product.setDiscountMinQuantity(updatedProduct.getDiscountMinQuantity());
+                    product.setProductImagePath(updatedProduct.getProductImagePath());
                     return productRepository.save(product);
                 })
                 .orElseThrow(() -> new RuntimeException("Product not found"));

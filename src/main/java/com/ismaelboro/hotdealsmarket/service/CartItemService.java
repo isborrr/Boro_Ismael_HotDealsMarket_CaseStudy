@@ -32,7 +32,7 @@ public class CartItemService {
     public CartItem updateCartItem(Long id, CartItem updatedCartItem) {
         return cartItemRepository.findById(id)
                 .map(cartItem -> {
-                    cartItem.setCustomerCart(updatedCartItem.getCustomerCart());
+                    cartItem.setCart(updatedCartItem.getCart());
                     cartItem.setProduct(updatedCartItem.getProduct());
                     cartItem.setQuantity(updatedCartItem.getQuantity());
                     return cartItemRepository.save(cartItem);
