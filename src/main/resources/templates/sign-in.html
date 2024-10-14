@@ -7,6 +7,26 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="../css/sign-in.css">
 
+
+
+      <style>
+          .register-link {
+              border-radius: 10px;
+              justify-content: center; /* Centers the grid items horizontally */
+              text-align: center;
+              font-family: "Merriweather", serif;
+              font-weight: 700;
+              font-style: normal;
+              font-size: 14px;
+              color: #ffffff;
+              text-align: right;
+              text-decoration: none; /* No underline by default */
+              margin-left: 75%;
+          }
+          .register-link:hover {
+              text-decoration: underline; /* Underline on hover */
+          }
+      </style>
   </head>
 
   <body>
@@ -14,7 +34,7 @@
         <div class="header-top">
             <div class="company-name-and-logo">
                 <div class="logo">
-                    <img class="compny-logo" src="../images/company-logo.png" alt="Company logo">
+                    <img  class="compny-logo" th:src="@{../images/company/company-logo.png}" alt="Example Image" />
                 </div>
                 <div class="company-name">Hot Deals Market </div>
 
@@ -48,7 +68,9 @@
                    <div id="emailError" class="error">Invalid email format.</div>
                    <input type="password" id="password" placeholder="Password">
                    <div id="passwordError" class="error">Password must be at least 6 characters long.</div>
-
+                   <div class="sign-up">
+                       <a th:href="@{/sign-up}" class="register-link">Sign up</a>
+                   </div>
                    <button type="submit">Sign In</button>
                </form>
              </div>
@@ -60,40 +82,32 @@
 
         <div class="partner-social-parent-container">
              <div class="logo">
-                <img class="compny-logo" src="../images/company-logo.png" alt="Company logo">
+                 <img class="compny-logo"  th:src="@{../images/company/company-logo.png}" alt="Company logo">
              </div>
             <div class="partner-and-social-container">
-                <div class="partner-note">Trusted by Businesses partner & Professionals</div>
-                <ul class="unorder-list">
-                    <li>Hotels & Motels</li> <li>Restaurants & Cafes</li>  <li>Cleaning Services</li>
-                    <li>Office Buildings </li>  <li>Religious Institutions </li> <li>Gyms & Fitness Centers</li>
-                    <li>Healthcare Facilities</li>        <li>Event Venues</li> <li>Educational Institutions</li>
-                </ul>
                 <br>
-                <div class="partnership-reason">Are choosing us for their essential     home  products, saving tons of money on top brands!"</div>
-
                 <div class="social-media">
                     <div class="s-media-co">
-                        <img class="social-media-logo" src="../socialmedia/facebook_icon.png" alt="social media logo">
+                        <img class="social-media-logo" th:src="@{../images/socialmedia/facebook_icon.png}" alt="social media logo">
                     </div>
                     <div class="s-media-co">
-                        <img class="social-media-logo" src="../socialmedia/instagram_icon.png" alt="social media logo">
+                        <img class="social-media-logo" th:src="@{../images/socialmedia/instagram_icon.png}" alt="social media logo">
                     </div>
                     <div class="s-media-co">
-                        <img class="social-media-logo" src="../socialmedia/twitter_icon.png" alt="social media logo">
+                        <img class="social-media-logo" th:src="@{../images/socialmedia/twitter_icon.png}" alt="social media logo">
                     </div>
                     <div class="s-media-co">
-                        <img class="social-media-logo" src="../socialmedia/youtube_icon.png" alt="social media logo">
+                        <img class="social-media-logo" th:src="@{../images/socialmedia/youtube_icon.png}" alt="social media logo">
                     </div>
 
                 </div>
             </div>
             <div class="company-headquarter">
-                <img class="headquarter-img" src="../images/strore-front-pic.png" alt="Company headquarter">
+                <img class="headquarter-img" th:src="@{../images/company/strore-front-pic.png}" alt="Company headquarter">
             </div>
         </div>
        </footer>
-       <script src="../javascript/sign-in.js"></script>
+       <script th:src="@{../js/sign-in.js}"></script>
   </body>
 
 </html>

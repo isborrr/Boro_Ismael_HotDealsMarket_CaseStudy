@@ -14,9 +14,16 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+
+
+
     public List<Product> getAllProducts(){
         return productRepository.findAll();
     }
+
+//    public List<Product> getProductsByCategory(Long categoryId){
+//        return productRepository.findByCategoryId(categoryId);
+//    }
 
     public Optional<Product>  getProductById(Long id){
         return productRepository.findById(id);
@@ -48,4 +55,7 @@ public class ProductService {
     }
 
 
+    public List<Product> getProductsByCategory(Long categoryId) {
+        return productRepository.findByProductCategoryCategoryId(categoryId);
+    }
 }

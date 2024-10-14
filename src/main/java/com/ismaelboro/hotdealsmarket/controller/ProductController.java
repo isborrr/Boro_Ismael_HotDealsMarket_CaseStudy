@@ -1,15 +1,3 @@
-//package com.ismaelboro.hotdealsmarket.controller;
-//
-//import org.springframework.stereotype.Controller;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//
-//@Controller
-//@RequestMapping
-//public class ProductController {
-//
-//}
-
-
 package com.ismaelboro.hotdealsmarket.controller;
 
 import com.ismaelboro.hotdealsmarket.model.Product;
@@ -23,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/products/prod")
 public class ProductController {
 
     @Autowired
@@ -60,3 +48,4 @@ public class ProductController {
 //        return ResponseEntity.noContent().build();  // HTTP 204 No Content   // from instructor
     }
 }
+

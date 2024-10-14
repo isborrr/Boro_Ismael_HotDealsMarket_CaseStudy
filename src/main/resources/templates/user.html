@@ -5,9 +5,7 @@
   <head>
     <title>Hot Deals Market</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <link rel="stylesheet" href="../css/user.css">
-
+    <link rel="stylesheet"  th:href="@{../css/user.css}">
   </head>
 
   <body>
@@ -16,7 +14,7 @@
         <div class="header-top">
             <div class="company-name-and-logo">
                 <div class="logo">
-                    <img class="compny-logo" src="../images/company-logo.png" alt="Company logo">
+                    <img  class="compny-logo" th:src="@{../images/company/company-logo.png}" alt="Example Image" />
                 </div>
                 <div class="company-name">Hot Deals Market </div>
 
@@ -24,7 +22,9 @@
 
             <button class="sign-out">Sign Out</button>
         </div>
-        <div class="welcome-message">Welcome: Alice</div>
+           <div class="welcome-message">
+               <pre>Welcome: <span th:text=" ${customer.first_name}">Customer name</span></pre>
+           </div>
         <div class="header-bottom">
             <div class="header-bottom-text"> Company Info  and adds</div>
         </div>
@@ -67,7 +67,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -91,7 +91,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -115,7 +115,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -139,7 +139,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -163,7 +163,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -187,7 +187,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -211,7 +211,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -235,7 +235,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -259,7 +259,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -283,7 +283,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -307,7 +307,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -331,7 +331,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -355,7 +355,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -379,7 +379,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -403,7 +403,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -427,7 +427,7 @@
                 <div class="cart-header">Tide detergent </div>
                      <div class="cart-contain">
                         <div class="cart-image">
-                            <img class="product-image" src="../images/tide-detergent.png" alt="Product Image">
+                            <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
                         </div>
                         <div class="cart-info">
                             <div class="rating">5 stars</div>
@@ -467,7 +467,7 @@
         <!-- </div> -->
         <div class="partner-social-parent-container">
              <div class="logo">
-                <img class="compny-logo" src="../images/company-logo.png" alt="Company logo">
+                 <img class="compny-logo"  th:src="@{../images/company/company-logo.png}" alt="Company logo">
              </div>
             <div class="partner-and-social-container">
                 <div class="partner-note">Trusted by Businesses partner & Professionals</div>
@@ -481,26 +481,26 @@
 
                 <div class="social-media">
                     <div class="s-media-co">
-                        <img class="social-media-logo" src="../socialmedia/facebook_icon.png" alt="social media logo">
+                        <img class="social-media-logo" th:src="@{../images/socialmedia/facebook_icon.png}" alt="social media logo">
                     </div>
                     <div class="s-media-co">
-                        <img class="social-media-logo" src="../socialmedia/instagram_icon.png" alt="social media logo">
+                        <img class="social-media-logo" th:src="@{../images/socialmedia/instagram_icon.png}" alt="social media logo">
                     </div>
                     <div class="s-media-co">
-                        <img class="social-media-logo" src="../socialmedia/twitter_icon.png" alt="social media logo">
+                        <img class="social-media-logo" th:src="@{../images/socialmedia/twitter_icon.png}" alt="social media logo">
                     </div>
                     <div class="s-media-co">
-                        <img class="social-media-logo" src="../socialmedia/youtube_icon.png" alt="social media logo">
+                        <img class="social-media-logo" th:src="@{../images/socialmedia/youtube_icon.png}" alt="social media logo">
                     </div>
 
                 </div>
             </div>
             <div class="company-headquarter">
-                <img class="headquarter-img" src="../images/strore-front-pic.png" alt="Company headquarter">
+                <img class="headquarter-img" th:src="@{../images/company/strore-front-pic.png}" alt="Company headquarter">
             </div>
         </div>
        </footer>
-       <script src="../javascript/user.js"></script>
+      <script th:src="@{../js/user.js}"></script>
   </body>
 
 </html>

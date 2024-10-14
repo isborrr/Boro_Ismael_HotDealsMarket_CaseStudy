@@ -40,4 +40,8 @@ public class CartItemService {
                 .orElseThrow(() -> new RuntimeException("Card item not found"));
     }
 
+    public List<CartItem> getCartItemsByCustomerId(Long customerId) {
+        return cartItemRepository.findByCartCustomerId(customerId);
+    }
+
 }

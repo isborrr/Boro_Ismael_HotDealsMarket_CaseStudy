@@ -55,3 +55,8 @@ form.addEventListener('submit', function (event) {
         // Here, you can submit the form data or proceed further.
     }
 });
+
+
+document.getElementById("backToHomeBtn").addEventListener("click", function() {
+    alert("Hello");
+});

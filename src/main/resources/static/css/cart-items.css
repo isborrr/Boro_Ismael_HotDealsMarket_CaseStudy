@@ -1,8 +1,8 @@
 body {
     margin: 0; /* Remove default body margin */
     font-weight:200;
-  }
-  body, html {
+}
+body, html {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -68,11 +68,11 @@ body {
 
 }
 .header-bottom-text{
-        font-family: "Merriweather", serif;
-        font-weight: 700;
-        font-style: normal;
-        font-size: 38px;
-        padding: 20px;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 38px;
+    padding: 20px;
 
 }
 navbar{
@@ -101,7 +101,7 @@ navbar{
 
 
 
-  .sign-out{
+.sign-out{
     margin-top: 0.5rem;
     margin-right: 1rem;
     width: fit-content;
@@ -114,25 +114,25 @@ navbar{
     /* box-shadow: 0 1px 0 #A10084 inset; */
     font-weight: 600;
     border-style: none;
-  }
+}
 
- .sign-out:hover{
+.sign-out:hover{
     background-color: #c20178;
     box-shadow: 0 2px 0 #e841c9 inset;
     cursor: pointer;
-  }
+}
 
-  .contact-btn , .homepage-btn{
+.contact-btn , .homepage-btn{
     background-color: #3E404F;
     color: white;
     padding: 16px;
     font-size: 16px;
     border: none;
     cursor: pointer;
-  }
-  .contact-btn:hover , .homepage-btn:hover{
+}
+.contact-btn:hover , .homepage-btn:hover{
     background-color: #737482;
-  }
+}
 
 /* table */
 
@@ -142,9 +142,9 @@ table {
     border-collapse: collapse;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  .user-cart-container{
+.user-cart-container{
     margin: 0 auto; /* Centers the grid container horizontally */
     display: grid;
     grid-template-columns: repeat(1, 1fr); /* 4 cards per row */
@@ -178,16 +178,16 @@ h3{
 }
 
 
-  th, td {
+th, td {
     padding: 15px;
     text-align: center;
     border: 1px solid #dddddd;
-  }
+}
 
-  th {
+th {
     background-color: #3E404F;
     color: white;
-  }
+}
 .total{
     text-align: right;
 }
@@ -201,23 +201,23 @@ h3{
     text-align: right;
     padding: 10px;
 }
-  .add-button {
+.add-button {
     background-color: blue;
     color: white;
     border: none;
     padding: 5px 15px;
     cursor: pointer;
     border-radius: 5px;
-  }
+}
 
-  .subtract-button {
+.subtract-button {
     background-color: red;
     color: white;
     border: none;
     padding: 5px 15px;
     cursor: pointer;
     border-radius: 5px;
-  }
+}
 
 
 .process-btn {
@@ -261,7 +261,7 @@ h3{
 }
 .subtract-button:hover{
     background-color: rgba(255, 0, 0, 0.576);
-        cursor: pointer;
+    cursor: pointer;
 }
 
 /* table */
@@ -375,20 +375,20 @@ li{
 }
 
 .compny-logo{
-      width: 70px;
-      height: 50px;
+    width: 70px;
+    height: 50px;
 }
 .headquarter-img{
-      width: 200px;
-      height: 200px;
+    width: 200px;
+    height: 200px;
 }
 
 
 
 /*  */
 
-  /* For small views */
-  @media (max-width:1300px) {
+/* For small views */
+@media (max-width:1300px) {
     .partner-social-parent-container{
         display: flex;
         flex-direction: column;
@@ -412,9 +412,9 @@ li{
         text-align: center; /* Center the list items inside the ul */
 
     }
-  }
+}
 
-  @media (max-width: 1200px) {
+@media (max-width: 1200px) {
 
 
 

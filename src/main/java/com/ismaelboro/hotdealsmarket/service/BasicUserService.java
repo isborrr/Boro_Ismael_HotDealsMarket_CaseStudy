@@ -1,9 +1,9 @@
 package com.ismaelboro.hotdealsmarket.service;
 
 import com.ismaelboro.hotdealsmarket.model.BasicUser;
+import com.ismaelboro.hotdealsmarket.model.BasicUserType;
 import com.ismaelboro.hotdealsmarket.repository.BasicUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,6 +32,9 @@ public class BasicUserService {
         basicUserRepository.deleteById(id);
     }
 
+    public List<BasicUser> getOnlyCustomers() {
+        return basicUserRepository.findByBasicUserType(BasicUserType.Customer);
+    }
 
     public BasicUser updateUser(Long id, BasicUser updatedBasicUser) {
         return basicUserRepository.findById(id)
