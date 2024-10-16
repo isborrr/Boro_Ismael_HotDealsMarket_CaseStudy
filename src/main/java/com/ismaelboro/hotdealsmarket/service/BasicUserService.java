@@ -2,14 +2,13 @@ package com.ismaelboro.hotdealsmarket.service;
 import org.springframework.security.core.GrantedAuthority;
 
 import com.ismaelboro.hotdealsmarket.model.BasicUser;
-import com.ismaelboro.hotdealsmarket.model.BasicUserType;
+import com.ismaelboro.hotdealsmarket.model.Role;
 import com.ismaelboro.hotdealsmarket.repository.BasicUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +31,7 @@ public class BasicUserService implements UserDetailsService {
         BasicUser user = (BasicUser) basicUserRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + user.getBasicUserType().name()); // ROLE_Admin or ROLE_Customer
+        GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + user.getRole().toString()); // ROLE_Admin or ROLE_Customer
 
         return org.springframework.security.core.userdetails.User
                 .withUsername(user.getEmail())
@@ -60,7 +59,7 @@ public class BasicUserService implements UserDetailsService {
     }
 
     public List<BasicUser> getOnlyCustomers() {
-        return basicUserRepository.findByBasicUserType(BasicUserType.Customer);
+        return basicUserRepository.findByRole(Role.CUSTOMER);
     }
 
     public BasicUser updateUser(Long id, BasicUser updatedBasicUser) {
@@ -69,7 +68,7 @@ public class BasicUserService implements UserDetailsService {
                     basicUser.setFirstName(updatedBasicUser.getFirstName());
                     basicUser.setLastName(updatedBasicUser.getLastName());
                     basicUser.setEmail(updatedBasicUser.getEmail());
-                    basicUser.setBasicUserType(updatedBasicUser.getBasicUserType());
+                    basicUser.setRole(updatedBasicUser.getRole());
                     basicUser.setPassword(updatedBasicUser.getPassword());
                     basicUser.setPhone(updatedBasicUser.getPhone());
                     return basicUserRepository.save(basicUser);

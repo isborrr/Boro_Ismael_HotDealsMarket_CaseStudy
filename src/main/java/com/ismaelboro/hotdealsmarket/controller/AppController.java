@@ -53,7 +53,7 @@ public class AppController {
         basicUser.setPassword(encodedPassword); // Set the encoded password
 
         // Save the user
-        basicUser.setBasicUserType(BasicUserType.Customer);
+        basicUser.setRole(Role.ADMIN);
         basicUserService.crateUser(basicUser);
         return "redirect:/sign-in"; // Redirect to login page after signup
     }
