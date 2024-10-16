@@ -17,10 +17,11 @@ public class BasicUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
+    @NotNull
     @Column(name = "first_name")
-    private String first_name;
+    private String firstName;
     @Column(name = "last_name")
-    private String  last_name;
+    private String  lastName;
     private String email;
     private String password ;
     @NotNull

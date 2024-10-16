@@ -52,11 +52,11 @@ form.addEventListener('submit', function (event) {
 
     if (valid) {
         alert('Sign up Successfully');
-        // Here, you can submit the form data or proceed further.
+        this.submit(); // Submit the form manually after successful validation
     }
 });
 
+//
+// document.getElementById("backToHomeBtn").addEventListener("click", function() {
+// });
 
-document.getElementById("backToHomeBtn").addEventListener("click", function() {
-    alert("Hello");
-});

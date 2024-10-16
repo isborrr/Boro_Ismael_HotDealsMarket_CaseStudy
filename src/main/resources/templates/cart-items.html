@@ -5,9 +5,7 @@
 <head>
     <title>Hot Deals Market</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
     <link rel="stylesheet" th:href="@{/css/cart-items.css}">
-
 </head>
 
 <body>
@@ -16,8 +14,9 @@
     <div class="header-top">
         <div class="company-name-and-logo">
             <div class="logo">
-                <img  class="compny-logo" th:src="@{/images/company/company-logo.png}" alt="Company logo" />
-
+                <a th:href="@{/products}">
+                    <img class="compny-logo" th:src="@{/images/company/company-logo.png}" alt="Company logo" />
+                </a>
             </div>
             <div class="company-name">Hot Deals Market </div>
 
@@ -26,14 +25,16 @@
         <button class="sign-out">Sign Out</button>
     </div>
     <div class="welcome-message">
-        <pre>Welcome: <span th:text=" ${customer.first_name}">Customer name</span></pre>
+        <pre>Welcome: <span th:text=" ${customer.firstName}">Customer name</span></pre>
     </div>
     <div class="header-bottom">
         <div class="header-bottom-text"> Company Info  and adds</div>
     </div>
 </header>
 <navbar>
-    <button class="homepage-btn">Home page </button>
+    <a th:href="@{/user/{id}(id=${customerId})}">
+        <button class="homepage-btn">Home page </button>
+    </a>
     <button class="contact-btn">Contact Us</button>
 
 </navbar>
@@ -61,17 +62,29 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="cartItems : ${cartItems}">
-                <td th:text="${cartItems.product.productNameAndSize}">Product Name</td>
-                <td th:text="${cartItems.quantity}">1</td>
-                <td th:text="'$ '+${(cartItems.quantity)*(cartItems.product.sellingPrice)}+'0'">Price</td>
+            <!-- Display cart items when ReceivingStatus is "Received" -->
+            <tr th:each="cartItem : ${cartItems}" th:if="${ cartItems.size() != 0 and cartItem.cart.receivingStatus.name() == 'Processed'}">
+                <td th:text="${cartItem.product.productNameAndSize}">Product Name</td>
+                <td th:text="${cartItem.quantity}">1</td>
+                <td th:text="'$ '+${(cartItem.quantity)*(cartItem.product.sellingPrice)}">Price</td>
                 <td>
                     <button class="add-button">+</button>
                     <button class="subtract-button">-</button>
                 </td>
             </tr>
 
+            <!-- Display message when cartItems exist but ReceivingStatus is NOT "Received" -->
+<!--            <tr th:if="${cartItems.size() == 0}">-->
+<!--                <td colspan="4">Your items are being processed or shipped, but not yet received.</td>-->
+<!--            </tr>-->
 
+            <!-- Display message if cart is empty -->
+            <tr th:if="${cartItems.size() == 0}">
+                <td colspan="4">Cart is empty.</td>
+            </tr>
+            <tr class="total_price">
+                <td colspan="4" class="total"><span>Total Price: $60.00</span></td>
+            </tr>
             </tbody>
         </table>
     </div>
@@ -90,19 +103,19 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Product 1</td>
-                <td>1</td>
-                <td>$10.00</td>
-            </tr>
-            <tr>
-                <td>Product 2</td>
-                <td>2</td>
-                <td>$20.00</td>
+            <!-- Display cart items when ReceivingStatus is "Received" -->
+            <tr th:each="cartItem : ${cartItems}" th:if="${cartItems.size() != 0 and cartItem.cart.receivingStatus.name() != 'Processed'}">
+                <td th:text="${cartItem.product.productNameAndSize}">Product Name</td>
+                <td th:text="${cartItem.quantity}">1</td>
+                <td th:text="'$ '+${(cartItem.quantity)*(cartItem.product.sellingPrice)}+'0'">Price</td>
             </tr>
             <tr class="total_price">
-                <td colspan="4" class="total"><span>Total Price: $160.00</span></td>
-                <!-- <td colspan="3">$60.00</td> -->
+                <td colspan="4" class="total"><span>Total Price: 160.00</span></td>
+            </tr>
+
+            <!-- Display message if cart is empty -->
+            <tr th:if="${cartItems.size() == 0}">
+                <td colspan="4">History is empty.</td>
             </tr>
             </tbody>
         </table>
@@ -110,11 +123,15 @@
 </main>
 <footer>
     <div class="back-to-top" >
+        <div class="back-to-top-text"onclick="topFunction()" id="myBtn" title="Go to top">  Back to top^^</div>
     </div>
-
+    <!-- <div class="back-to-top-sign">Back to top sign</div> -->
+    <!-- </div> -->
     <div class="partner-social-parent-container">
         <div class="logo">
-            <img class="compny-logo"  th:src="@{/images/company/company-logo.png}" alt="Company logo">
+            <a th:href="@{/products}">
+                <img  class="compny-logo" th:src="@{/images/company/company-logo.png}" alt="Company logo" />
+            </a>
         </div>
         <div class="partner-and-social-container">
             <div class="partner-note">Trusted by Businesses partner & Professionals</div>
@@ -124,30 +141,30 @@
                 <li>Healthcare Facilities</li>        <li>Event Venues</li> <li>Educational Institutions</li>
             </ul>
             <br>
-            <div class="partnership-reason">Are choosing us for their essential     home  products, saving tons of money on top brands!"</div>
+            <div class="partnership-reason">Are choosing us for their essential home  products, saving tons of money on top brands!"</div>
 
             <div class="social-media">
                 <div class="s-media-co">
-                    <img class="social-media-logo" th:src="@{../images/socialmedia/facebook_icon.png}" alt="social media logo">
+                    <img class="social-media-logo" th:src="@{/images/socialmedia/facebook_icon.png}" alt="social media logo">
                 </div>
                 <div class="s-media-co">
-                    <img class="social-media-logo" th:src="@{../images/socialmedia/instagram_icon.png}" alt="social media logo">
+                    <img class="social-media-logo" th:src="@{/images/socialmedia/instagram_icon.png}" alt="social media logo">
                 </div>
                 <div class="s-media-co">
-                    <img class="social-media-logo" th:src="@{../images/socialmedia/twitter_icon.png}" alt="social media logo">
+                    <img class="social-media-logo" th:src="@{/images/socialmedia/twitter_icon.png}" alt="social media logo">
                 </div>
                 <div class="s-media-co">
-                    <img class="social-media-logo" th:src="@{../images/socialmedia/youtube_icon.png}" alt="social media logo">
+                    <img class="social-media-logo" th:src="@{/images/socialmedia/youtube_icon.png}" alt="social media logo">
                 </div>
 
             </div>
         </div>
         <div class="company-headquarter">
-            <img class="headquarter-img" th:src="@{../images/company/strore-front-pic.png}" alt="Company headquarter">
+            <img class="headquarter-img" th:src="@{/images/company/strore-front-pic.png}" alt="Company headquarter">
         </div>
     </div>
 </footer>
-<script th:src="@{../js/cart-items.js}"></script>
+<script th:src="@{/js/cart-items.js}"></script>
 </body>
 
 </html>

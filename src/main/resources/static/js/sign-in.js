@@ -27,6 +27,7 @@ form.addEventListener('submit', function (event) {
 
     if (valid) {
         alert('Sign in Successfully!');
+        this.submit(); // Submit the form manually after successful validation
         // Here, you can submit the form data or proceed further.
     }
 });

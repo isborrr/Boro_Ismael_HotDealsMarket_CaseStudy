@@ -86,6 +86,22 @@ navbar{
     flex-direction: row;
     gap: 20px;
 }
+
+.usercart{
+    margin-left: 1.2rem;
+    background-color: #3E404F;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+.usercart:hover{
+    background-color: #737482;
+}
+
+
+
 .main-header{
     background-color: #D9D9D9;
     width: 90%;

@@ -1,7 +1,12 @@
 package com.ismaelboro.hotdealsmarket.service;
 
+import com.ismaelboro.hotdealsmarket.model.Cart;
 import com.ismaelboro.hotdealsmarket.model.CartItem;
+import com.ismaelboro.hotdealsmarket.model.Product;
+import com.ismaelboro.hotdealsmarket.model.ReceivingStatus;
 import com.ismaelboro.hotdealsmarket.repository.CartItemRepository;
+import com.ismaelboro.hotdealsmarket.repository.CartRepository;
+import com.ismaelboro.hotdealsmarket.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +17,11 @@ import java.util.Optional;
 public class CartItemService {
     @Autowired
     private CartItemRepository cartItemRepository;
+    @Autowired
+    private ProductRepository productRepository;
+    @Autowired
+    private CartRepository cartRepository;
+
 
     public List<CartItem> getAllCartItems(){
         return cartItemRepository.findAll();
@@ -43,5 +53,28 @@ public class CartItemService {
     public List<CartItem> getCartItemsByCustomerId(Long customerId) {
         return cartItemRepository.findByCartCustomerId(customerId);
     }
+
+
+//    Service for add to a cart and buy now
+//
+//    public Cart addToCart(Long customerId, Long productId, int quantity, ReceivingStatus status) {
+//        Product product = productRepository.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
+//
+//        Cart cart = cartRepository.findByCustomerId(customerId).orElseGet(() -> {
+//            Cart newCart = new Cart();
+//            newCart.setCustomerId(customerId);
+//            return newCart;
+//        });
+//
+//        CartItem cartItem = new CartItem();
+//        cartItem.setProduct(product);
+//        cartItem.setQuantity(quantity);
+//        cartItem.setCart(cart);
+//
+//        cart.setReceivingStatus(status);
+//        cart.getCartItems().add(cartItem);
+//
+//        return cartRepository.save(cart);
+//    }
 
 }

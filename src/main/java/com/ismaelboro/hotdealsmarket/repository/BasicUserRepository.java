@@ -10,4 +10,6 @@ import java.util.Optional;
 @Repository
 public interface BasicUserRepository extends JpaRepository<BasicUser,Long> {
     List<BasicUser> findByBasicUserType(BasicUserType basicUserType);
+
+    Optional<Object> findByEmail(String email);
 }

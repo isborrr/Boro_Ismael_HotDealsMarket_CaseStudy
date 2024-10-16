@@ -88,7 +88,18 @@ navbar{
 }
 
 
-
+.contact-btn{
+    text-align: left;
+    background-color: #3E404F;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+.contact-btn:hover{
+    background-color: #737482;
+}
 
 
 .heartbeat-text {
@@ -111,26 +122,6 @@ navbar{
     50% { transform: scale(1.05); }   /* Shrink back a bit */
     75% { transform: scale(1.15); }   /* Grow again, but smoothly */
   }
-
-
-
-
-
-
-  .contact-btn{
-    background-color: #3E404F;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  .contact-btn:hover{
-    background-color: #737482;
-  }
-
-
-
 
 
 
@@ -170,6 +161,14 @@ footer{
 }
 
 
+
+
+.back-to-top-text:hover{
+    background-color: #0f1111dd;
+    cursor: pointer;
+    color: gray;
+}
+
 h2{
     padding: 1px;
     margin: 4px;
@@ -198,7 +197,7 @@ input {
     display: none;
 }
 
-button {
+.sign-in-btn {
     width: 100%;
     padding: 10px;
     background-color: #4CAF50;
@@ -208,7 +207,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.sign-in-btn:hover {
     background-color: #45a049;
 }
 

@@ -7,8 +7,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="../css/sign-in.css">
 
-
-
       <style>
           .register-link {
               border-radius: 10px;
@@ -26,6 +24,21 @@
           .register-link:hover {
               text-decoration: underline; /* Underline on hover */
           }
+          .back-to-top{
+              /* height: 4rem; */
+              text-align: center;
+              background-color: #0f1111;
+              bottom: 20px;
+              right: 30px;
+              z-index: 99;
+              font-size: 18px;
+              border: none;
+              outline: none;
+              /* background-color: red; */
+              color: white;
+              padding: 15px;
+
+          }
       </style>
   </head>
 
@@ -34,7 +47,9 @@
         <div class="header-top">
             <div class="company-name-and-logo">
                 <div class="logo">
-                    <img  class="compny-logo" th:src="@{../images/company/company-logo.png}" alt="Example Image" />
+                    <a th:href="@{/products}">
+                        <img  class="compny-logo" th:src="@{../images/company/company-logo.png}" alt="Company logo" />
+                    </a>
                 </div>
                 <div class="company-name">Hot Deals Market </div>
 
@@ -45,10 +60,9 @@
         </div>
        </header>
        <navbar>
-
-        <div class="contactUs">
-            <button class="contact-btn">Back to Home page</button>
-        </div>
+           <a th:href="@{/products}">
+                <button class="contact-btn">Home page</button>
+           </a>
        </navbar>
        <main>
         <div class="main-header">
@@ -60,52 +74,80 @@
                  Enjoy free delivery!
             </div>
         </div>
-        <div class="sign-in">
-            <div class="form-container">
-               <h2>Sign In</h2>
-               <form id="signinForm">
-                   <input type="email" id="email" placeholder="Email">
-                   <div id="emailError" class="error">Invalid email format.</div>
-                   <input type="password" id="password" placeholder="Password">
-                   <div id="passwordError" class="error">Password must be at least 6 characters long.</div>
-                   <div class="sign-up">
-                       <a th:href="@{/sign-up}" class="register-link">Sign up</a>
-                   </div>
-                   <button type="submit">Sign In</button>
-               </form>
-             </div>
-        </div>
+<!--        <div class="sign-in">-->
+<!--            <div class="form-container">-->
+<!--               <h2>Sign In</h2>-->
+<!--               <form id="signinForm">-->
+<!--                   <input type="email" id="email" placeholder="Email">-->
+<!--                   <div id="emailError" class="error">Invalid email format.</div>-->
+<!--                   <input type="password" id="password" placeholder="Password">-->
+<!--                   <div id="passwordError" class="error">Password must be at least 6 characters long.</div>-->
+<!--                   <div class="sign-up">-->
+<!--                       <a th:href="@{/sign-up}" class="register-link">Sign up</a>-->
+<!--                   </div>-->
+<!--                   <button type="submit" class="sign-in-btn">Sign In</button>-->
+<!--               </form>-->
+<!--             </div>-->
+<!--        </div>-->
 
-
+           <div class="sign-in">
+               <div class="form-container">
+                   <h2>Sign In</h2>
+                   <form id="signinForm" method="POST" action="/sign-in">
+                       <input type="email" id="email" name="username" placeholder="Email" required>
+                       <div id="emailError" class="error" style="display:none;">Invalid email format.</div>
+                       <input type="password" id="password" name="password" placeholder="Password" required minlength="6">
+                       <div id="passwordError" class="error" style="display:none;">Password must be at least 6 characters long.</div>
+                       <div class="sign-up">
+                           <a th:href="@{/sign-up}" class="register-link">Sign up</a>
+                       </div>
+                       <button type="submit" class="sign-in-btn">Sign In</button>
+                   </form>
+               </div>
+           </div>
        </main>
        <footer>
+           <div class="back-to-top" >
+               <div class="back-to-top-text"onclick="topFunction()" id="myBtn" title="Go to top">  Back to top^^</div>
+           </div>
+           <!-- <div class="back-to-top-sign">Back to top sign</div> -->
+           <!-- </div> -->
+           <div class="partner-social-parent-container">
+               <div class="logo">
+                   <a th:href="@{/products}">
+                       <img  class="compny-logo" th:src="@{/images/company/company-logo.png}" alt="Company logo" />
+                   </a>
+               </div>
+               <div class="partner-and-social-container">
+                   <div class="partner-note">Trusted by Businesses partner & Professionals</div>
+                   <ul class="unorder-list">
+                       <li>Hotels & Motels</li> <li>Restaurants & Cafes</li>  <li>Cleaning Services</li>
+                       <li>Office Buildings </li>  <li>Religious Institutions </li> <li>Gyms & Fitness Centers</li>
+                       <li>Healthcare Facilities</li>        <li>Event Venues</li> <li>Educational Institutions</li>
+                   </ul>
+                   <br>
+                   <div class="partnership-reason">Are choosing us for their essential     home  products, saving tons of money on top brands!"</div>
 
-        <div class="partner-social-parent-container">
-             <div class="logo">
-                 <img class="compny-logo"  th:src="@{../images/company/company-logo.png}" alt="Company logo">
-             </div>
-            <div class="partner-and-social-container">
-                <br>
-                <div class="social-media">
-                    <div class="s-media-co">
-                        <img class="social-media-logo" th:src="@{../images/socialmedia/facebook_icon.png}" alt="social media logo">
-                    </div>
-                    <div class="s-media-co">
-                        <img class="social-media-logo" th:src="@{../images/socialmedia/instagram_icon.png}" alt="social media logo">
-                    </div>
-                    <div class="s-media-co">
-                        <img class="social-media-logo" th:src="@{../images/socialmedia/twitter_icon.png}" alt="social media logo">
-                    </div>
-                    <div class="s-media-co">
-                        <img class="social-media-logo" th:src="@{../images/socialmedia/youtube_icon.png}" alt="social media logo">
-                    </div>
+                   <div class="social-media">
+                       <div class="s-media-co">
+                           <img class="social-media-logo" th:src="@{/images/socialmedia/facebook_icon.png}" alt="social media logo">
+                       </div>
+                       <div class="s-media-co">
+                           <img class="social-media-logo" th:src="@{/images/socialmedia/instagram_icon.png}" alt="social media logo">
+                       </div>
+                       <div class="s-media-co">
+                           <img class="social-media-logo" th:src="@{/images/socialmedia/twitter_icon.png}" alt="social media logo">
+                       </div>
+                       <div class="s-media-co">
+                           <img class="social-media-logo" th:src="@{/images/socialmedia/youtube_icon.png}" alt="social media logo">
+                       </div>
 
-                </div>
-            </div>
-            <div class="company-headquarter">
-                <img class="headquarter-img" th:src="@{../images/company/strore-front-pic.png}" alt="Company headquarter">
-            </div>
-        </div>
+                   </div>
+               </div>
+               <div class="company-headquarter">
+                   <img class="headquarter-img" th:src="@{/images/company/strore-front-pic.png}" alt="Company headquarter">
+               </div>
+           </div>
        </footer>
        <script th:src="@{../js/sign-in.js}"></script>
   </body>
