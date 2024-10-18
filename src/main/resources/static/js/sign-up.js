@@ -51,7 +51,6 @@ form.addEventListener('submit', function (event) {
     }
 
     if (valid) {
-        alert('Sign up Successfully');
         this.submit(); // Submit the form manually after successful validation
     }
 });

@@ -75,6 +75,68 @@ body {
         padding: 20px;
 
 }
+/*slideShow*/
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Style for the slide images */
+.slideImg {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+    height: 300px;           /* Set height for the slideshow container */
+}
+
+.slide-image {
+    width: 300px;  /* Set the width of the images */
+    height: 300px; /* Set the height of the images */
+    object-fit: cover; /* Ensure images fit within the box without distortion */
+}
+
+/* Fade animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: 0.4;}
+    to {opacity: 1;}
+}
+
+/* Style for the dots */
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active {
+    background-color: #717171;
+}
+
+/* Center the dots */
+.dots-container {
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+
 navbar{
     background-color: #626578;
     display: flex;
@@ -153,6 +215,7 @@ navbar{
 }
 .product-image{
     width: 150px;
+    height: 150px;
     border-radius: 15px;
 }
 .cart-info{

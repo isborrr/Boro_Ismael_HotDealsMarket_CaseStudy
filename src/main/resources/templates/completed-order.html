@@ -79,18 +79,12 @@
                 <td colspan="4">Cart is empty.</td>
             </tr>
             <tr th:if="${cartTotal != 0}" class="total_price">
-             <td colspan="4" class="total">   <span th:text="'Total Price: $'+${cartTotal}+'0'"  >Price</span> </td>
+                <td colspan="4" class="total">   <span th:text="'Total Price: $'+${cartTotal}+'0'"  >Price</span> </td>
             </tr>
             </tbody>
         </table>
     </div>
-<!--    "/user/{id}/cart-items/order-completed"-->
-<!--    <a th:href="@{/user/{id}/cart-items(id=${customer.id})}">-->
-
-        <button  class="process-btn">
-            <a th:href="@{/user/{id}/cart-items/order-completed(id=${customer.id})}" class="complete-order"> Complete Order </a>
-        </button>
-
+    <button type="submit" class="process-btn">Complete Order</button>
     <hr class="new4">
     <div class="cart-header">
         <h3>History</h3>

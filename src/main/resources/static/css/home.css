@@ -122,6 +122,7 @@ navbar{
 }
 .product-image{
     width: 150px;
+    height: 150px;
     border-radius: 15px;
 }
 .cart-info{

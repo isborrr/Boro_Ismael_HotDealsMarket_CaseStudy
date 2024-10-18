@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -52,6 +53,21 @@ public class ProductService {
                     return productRepository.save(product);
                 })
                 .orElseThrow(() -> new RuntimeException("Product not found"));
+    }
+
+    public Product updateProductQuantity(String productName, int productQuantity){
+        Product returnProduct = null;
+         List<Product> products = getAllProducts();
+         for(Product product : products){
+             if(Objects.equals(productName, product.getProductNameAndSize())){
+                 returnProduct = product;
+             }
+         }
+          if(returnProduct != null){
+              returnProduct.setStockQuantity(returnProduct.getStockQuantity() + productQuantity);
+              productRepository.save(returnProduct);
+          }
+        return returnProduct;
     }
 
 

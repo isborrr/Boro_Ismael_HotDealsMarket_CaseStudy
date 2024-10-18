@@ -18,27 +18,13 @@ import java.util.Optional;
 
 
 @Service
-public class BasicUserService implements UserDetailsService {
+public class BasicUserService  {
 
     @Autowired
     private BasicUserRepository basicUserRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder; // Inject PasswordEncoder instead of BCryptPasswordEncoder
-
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        BasicUser user = (BasicUser) basicUserRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-
-        GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + user.getRole().toString()); // ROLE_Admin or ROLE_Customer
-
-        return org.springframework.security.core.userdetails.User
-                .withUsername(user.getEmail())
-                .password(user.getPassword())
-                .authorities(Collections.singletonList(authority))
-                .build();
-    }
 
     public BasicUser crateUser(BasicUser user) {
         user.setPassword(passwordEncoder.encode(user.getPassword())); // Encode the password
@@ -61,6 +47,11 @@ public class BasicUserService implements UserDetailsService {
     public List<BasicUser> getOnlyCustomers() {
         return basicUserRepository.findByRole(Role.CUSTOMER);
     }
+
+//    public int countTotalCustomer() {
+//        List<BasicUser> basicUsersList = basicUserRepository.findByRole(Role.CUSTOMER);
+//        return  basicUsersList.size();
+//    }
 
     public BasicUser updateUser(Long id, BasicUser updatedBasicUser) {
         return basicUserRepository.findById(id)

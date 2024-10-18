@@ -21,7 +21,10 @@ public class CartItemService {
     private ProductRepository productRepository;
     @Autowired
     private CartRepository cartRepository;
-
+    @Autowired
+    private CartService cartService;
+    @Autowired
+    private ProductService productService;
 
     public List<CartItem> getAllCartItems(){
         return cartItemRepository.findAll();
@@ -53,6 +56,52 @@ public class CartItemService {
     public List<CartItem> getCartItemsByCustomerId(Long customerId) {
         return cartItemRepository.findByCartCustomerId(customerId);
     }
+
+    public double getTotalPriceForAddCartItems(Long customerId) {
+        double totalPrice = 0;
+        List<CartItem> cartItems = getCartItemsByCustomerId(customerId);
+        if (!cartItems.isEmpty()) {
+            for (CartItem cartItem : cartItems) {
+                if(cartItem.getCart().getReceivingStatus().name().equals("Processed")){
+                    totalPrice += cartItem.getQuantity() * cartItem.getProduct().getSellingPrice();
+                }
+            }
+        }
+        return totalPrice;
+    }
+
+    public double getTotalPriceCartHistoryItems(Long customerId) {
+        double totalPrice = 0;
+        List<CartItem> cartItems = getCartItemsByCustomerId(customerId);
+        if(!cartItems.isEmpty()){
+            for (CartItem cartItem : cartItems) {
+                if(!cartItem.getCart().getReceivingStatus().name().equals("Processed")){
+                    totalPrice += cartItem.getQuantity() * cartItem.getProduct().getSellingPrice();
+                }
+            }
+        }
+        return totalPrice;
+    }
+
+    public void completeOrder(Long customerId) {
+        List<CartItem> cartItems = getCartItemsByCustomerId(customerId);
+        if(!cartItems.isEmpty()){
+            for (CartItem cartItem : cartItems) {
+                if(cartItem.getCart().getReceivingStatus().name().equals("Processed")){
+                    Cart carTobeUpdated = cartItem.getCart();
+                    carTobeUpdated.setReceivingStatus(ReceivingStatus.Shipped);
+                    cartService.updateCart(carTobeUpdated.getCartId(),carTobeUpdated);
+
+                    Product productTobeUpdated = cartItem.getProduct();
+                    if( productTobeUpdated.getStockQuantity() >= cartItem.getQuantity()){
+                        productTobeUpdated.setStockQuantity(productTobeUpdated.getStockQuantity() - cartItem.getQuantity());
+                        productService.updateProduct(productTobeUpdated.getProductId(),productTobeUpdated);
+                    }
+                }
+            }
+        }
+    }
+
 
 
 //    Service for add to a cart and buy now

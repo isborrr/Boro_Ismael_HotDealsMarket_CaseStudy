@@ -14,16 +14,62 @@
             </a>
             <div class="company-name">Hot Deals Market</div>
         </div>
-        <button class="sign-out">Sign Out</button>
+        <form th:action="@{/logout}" method="post" style="display: inline;">
+            <button class="sign-out" type="submit">Sign Out</button>
+        </form>
+
+
     </div>
     <div class="welcome-message">
         <pre>Welcome: <span th:text="${customer.firstName}">Customer name</span></pre>
     </div>
     <div class="header-bottom">
-        <div class="header-bottom-text">Company Info and ads</div>
+            <div class="header-bottom-text">Start saving today</div>
     </div>
-</header>
+    <div class="slideshow-container">
+        <div class="slideImg">
+            <div class="mySlides fade">
+                <img class="slide-image" th:src="@{../images/slide/happy.jpeg}" alt="Product image" />
+            </div>
+            <div class="mySlides fade">
+                <img class="slide-image" th:src="@{../images/slide/box.png}" alt="Product image" />
+            </div>
+            <div class="mySlides fade">
+                <img class="slide-image" th:src="@{../images/slide/giftbox.png}" alt="Product image" />
+            </div>
+            <div class="mySlides fade">
+                <img class="slide-image" th:src="@{../images/slide/antibacterial-liquid-soap-500ml.png}" alt="Product image" />
+            </div>
+            <div class="mySlides fade">
+                <img class="slide-image" th:src="@{../images/slide/antidandruff-shampoo-300ml.png}" alt="Product image" />
+            </div>
+            <div class="mySlides fade">
+                <img class="slide-image" th:src="@{../images/slide/moisturizing-bar-soap-100g.png}" alt="Product image" />
+            </div>
+            <div class="mySlides fade">
+                <img class="slide-image" th:src="@{../images/slide/happyBox.png}" alt="Product image" />
+            </div>
+            <div class="mySlides fade">
+                <img class="slide-image" th:src="@{../images/slide/productImg.png}" alt="Product image" />
+            </div>
+            <div class="mySlides fade">
+                <img class="slide-image" th:src="@{../images/slide/productimg1.png}" alt="Product image" />
+            </div>
+        </div>
 
+        <!-- Dots -->
+        <div class="dots-container">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+    <br>
+
+</header>
 <navbar>
     <div class="dropDown_menu">
         <div class="dropdown" style="float:left;">
@@ -49,13 +95,11 @@
         <button class="contact-btn">Contact Us</button>
     </div>
 </navbar>
-
 <main>
     <div class="main-header">
         <div class="main-header-description">The leading American company of essential products</div>
         <div class="main-header-delivery">Free delivery for order over $35</div>
     </div>
-
     <div class="cart-container">
         <div th:each="product : ${products}" class="cart">
             <div class="cart-header">
@@ -63,7 +107,7 @@
             </div>
             <div class="cart-contain">
                 <div class="cart-image">
-                    <img class="product-image" th:src="@{../images/products/tide-detergent.png}" alt="Product Image">
+                    <img class="product-image" th:src="@{${product.productImagePath}}" alt="Product Image">
                 </div>
                 <div class="cart-info">
                     <div class="rating">5 stars</div>

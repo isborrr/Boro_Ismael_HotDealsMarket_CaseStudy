@@ -219,9 +219,14 @@ th {
     border-radius: 5px;
 }
 
-
+.complete-order{
+    text-decoration: none; /* Remove underline */
+    width: 200px;
+    color: white;
+}
 .process-btn {
     width: 200px;
+    width: fit-content;
     padding: 10px;
     color: white;
     border: none;

@@ -24,7 +24,9 @@
 
         </div>
 
-        <button class="sign-out">Sign Out</button>
+        <form th:action="@{/logout}" method="post" style="display: inline;">
+            <button class="sign-out" type="submit">Sign Out</button>
+        </form>
     </div>
     <div class="welcome-message">Welcome: Alice</div>
     <div class="header-bottom">
@@ -51,34 +53,29 @@
         <table>
             <thead>
             <tr>
-                <th>Product Name</th>
-                <th>Quantity</th>
-                <th>Add/Subtract</th>
+                <th>Product Name and Quantity</th>
+<!--                <th>Quantity</th>-->
             </tr>
             </thead>
             <tbody>
 
             <tr >
                 <td>
-                    <form>
-                        <label for="machines">Select product:</label>
-                        <select id="machines" name="machines">
+                    <form th:action="@{/addProduct}" method="POST">
+                        <label for="items">Select product:</label>
+                        <select id="items" name="productName" required>
                             <option value="" disabled selected>Select a product</option>
                             <option th:each="product : ${products}"
                                     th:value="${product.productNameAndSize}"
-                                    th:text="${product.productNameAndSize}">Product Name</option>
+                                    th:text="${product.productNameAndSize}" >Product Name
+                            </option>
                         </select>
+                        <label for="quantity">Quantity</label>
+                        <input type="number" id="quantity" name="quantity" placeholder="Enter quantity here"  required>
+<!--                        min="1"-->
+                        <button type="submit" class="save-button">Add Product</button>
                     </form>
 
-                </td>
-                <td>
-                    <form>
-                        <label for="name"></label>
-                        <input type="number" id="name" name="name" placeholder="Enter quantity here">
-                    </form>
-                </td>
-                <td>
-                    <button class="save-button">Save</button>
                 </td>
             </tr>
 
@@ -88,20 +85,34 @@
 
     <hr class="new4">
     <div class="estimation-header">
-        <h3>Estimation</h3>
+        <h3>Inventory</h3>
     </div>
     <div class="estimation-cart-container">
         <table>
             <thead>
             <tr>
-                <th>Total buying price</th>
-                <th>Total selling price</th>
+                <th>Product Name</th>
+                <th>Buying Price</th>
+                <th>Selling Price</th>
+                <th>Market Price</th>
+                <th>Quantity left</th>
+                <th>Image</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>$31,666.00</td>
-                <td>$87.323.00</td>
+            <tr th:each="product:${products}">
+                <td th:text="${product.productNameAndSize}">Product Name</td>
+                <td th:text="'$'+${product.buyingPrice}+'0'">Buying Price</td>
+                <td th:text="'$'+${product.sellingPrice}+'0'">Selling Price</td>
+                <td th:text="'$'+${product.marketPrice}+'0'">Market Price</td>
+                <td th:text="${product.stockQuantity}"
+                    th:classappend="${product.stockQuantity < 20 ? 'low-stock' : (product.stockQuantity > 200 ? 'high-stock' : 'normal-stock')}">
+                    Stock Quantity
+                </td>
+
+                <td>
+                    <img class="product-image" th:src="@{${product.productImagePath}}" alt="Product Image" />
+                </td>
             </tr>
             <tr class="total_price">
                 <td colspan="4" class="total"><span> Profit estimate: $21,000.00</span></td>
@@ -131,7 +142,7 @@
                 <td th:text="${customerUser.phone}">Customer email</td>
             </tr>
             <tr class="total_price">
-                <td colspan="4" class="total"><span> Total customer number: 300</span></td>
+                <td colspan="4" class="total">   <span th:text="'Total customers: '+${totalCustomer}">Total customers> </span></td>
                 <!-- <td colspan="3">$60.00</td> -->
             </tr>
             </tbody>

@@ -48,12 +48,8 @@ public class AppController {
 
     @PostMapping("/sign-up")
     public String signup(BasicUser basicUser) {
-// Encode the password before saving
-        String encodedPassword = passwordEncoder.encode(basicUser.getPassword());
-        basicUser.setPassword(encodedPassword); // Set the encoded password
-
         // Save the user
-        basicUser.setRole(Role.ADMIN);
+        basicUser.setRole(Role.CUSTOMER);
         basicUserService.crateUser(basicUser);
         return "redirect:/sign-in"; // Redirect to login page after signup
     }
@@ -78,14 +74,24 @@ public class AppController {
     public String adminPage( Model model) {
         List<Product> products = productService.getAllProducts();
         List<BasicUser> customerUsers = basicUserService.getOnlyCustomers();
+        int totalCustomer = customerUsers.size();
         model.addAttribute("products", products);
         model.addAttribute("customerUsers", customerUsers);
+        model.addAttribute("totalCustomer", totalCustomer);
 
         return "admin"; // Name of your Thymeleaf template for the sign-in page
     }
 
+
+    @PostMapping("/addProduct")
+    public String addProductQuantity( String productName, int quantity) {
+        productService.updateProductQuantity(productName, quantity);
+        return "redirect:/admin"; // Redirects to the admin page
+    }
+
+
     @GetMapping("/user/{id}")
-    public String user(@PathVariable Long id, @RequestParam(required = false) Long categoryId, Model model) {
+        public String user(@PathVariable Long id, @RequestParam(required = false) Long categoryId, Model model) {
         List<Product> products = categoryId != null
                 ? productService.getProductsByCategory(categoryId)
                 : productService.getAllProducts();
@@ -113,11 +119,31 @@ public class AppController {
     @GetMapping("/user/{id}/cart-items")
     public String getCartItemsByCustomerId(@PathVariable Long id, Model model) {
         List<CartItem> cartItems = cartItemService.getCartItemsByCustomerId(id);
+        double cartTotal  = cartItemService.getTotalPriceForAddCartItems(id);
+        double cartHistoryTotal  = cartItemService.getTotalPriceCartHistoryItems(id);
         Optional<BasicUser> customer = basicUserService.getUserById(id);
         customer.ifPresent(basicUser -> model.addAttribute("customer", basicUser));
         model.addAttribute("cartItems", cartItems);
         model.addAttribute("customerId", id);
+        model.addAttribute("cartTotal", cartTotal);
+        model.addAttribute("cartHistoryTotal", cartHistoryTotal);
         return "cart-items"; // Thymeleaf template name
+    }
+
+    // Method to handle the request for cart items by customerId
+    @GetMapping("/user/{id}/cart-items/order-completed")
+    public String getCartItemsByCustomerIdAndPrepareCompletion(@PathVariable Long id, Model model) {
+        cartItemService.completeOrder(id);
+        List<CartItem> cartItems = cartItemService.getCartItemsByCustomerId(id);
+        double cartTotal  = cartItemService.getTotalPriceForAddCartItems(id);
+        double cartHistoryTotal  = cartItemService.getTotalPriceCartHistoryItems(id);
+        Optional<BasicUser> customer = basicUserService.getUserById(id);
+        customer.ifPresent(basicUser -> model.addAttribute("customer", basicUser));
+        model.addAttribute("cartItems", cartItems);
+        model.addAttribute("customerId", id);
+        model.addAttribute("cartTotal", cartTotal);
+        model.addAttribute("cartHistoryTotal", cartHistoryTotal);
+        return "completed-order"; // Thymeleaf template name
     }
 
 //

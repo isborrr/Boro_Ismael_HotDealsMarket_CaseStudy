@@ -189,7 +189,17 @@ h3{
     background-color: #3E404F;
     color: white;
   }
+.low-stock {
+    background-color: #ffcccc; /* Light red for low stock */
+}
 
+.normal-stock {
+    background-color: #ccffcc; /* Light green for normal stock */
+}
+
+.high-stock {
+    background-color: #66ff66; /* Bright green for high stock */
+}
   .total{
     text-align: right;
 }
@@ -203,7 +213,11 @@ h3{
     text-align: right;
     padding: 10px;
 }
-
+.product-image{
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+}
 
   .save-button {
     background-color: blue;
