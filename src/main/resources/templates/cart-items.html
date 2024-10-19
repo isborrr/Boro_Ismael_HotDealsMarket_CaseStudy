@@ -9,7 +9,6 @@
 </head>
 
 <body>
-<!-- <p th:text="#{home.welcome}">Welcome to our grocery store!</p> -->
 <header>
     <div class="header-top">
         <div class="company-name-and-logo">
@@ -84,10 +83,7 @@
             </tbody>
         </table>
     </div>
-<!--    "/user/{id}/cart-items/order-completed"-->
-<!--    <a th:href="@{/user/{id}/cart-items(id=${customer.id})}">-->
-
-        <button  class="process-btn">
+     <button  class="process-btn">
             <a th:href="@{/user/{id}/cart-items/order-completed(id=${customer.id})}" class="complete-order"> Complete Order </a>
         </button>
 
@@ -128,8 +124,6 @@
     <div class="back-to-top" >
         <div class="back-to-top-text"onclick="topFunction()" id="myBtn" title="Go to top">  Back to top^^</div>
     </div>
-    <!-- <div class="back-to-top-sign">Back to top sign</div> -->
-    <!-- </div> -->
     <div class="partner-social-parent-container">
         <div class="logo">
             <a th:href="@{/products}">

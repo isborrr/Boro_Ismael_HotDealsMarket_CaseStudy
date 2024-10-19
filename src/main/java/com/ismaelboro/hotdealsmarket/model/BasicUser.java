@@ -1,7 +1,5 @@
 package com.ismaelboro.hotdealsmarket.model;
 
-
-
 import jakarta.persistence.*;
 import lombok.Data;
 import org.antlr.v4.runtime.misc.NotNull;
@@ -26,8 +24,5 @@ public class BasicUser {
     @Enumerated(EnumType.STRING)
     private Role role ;
 
-
-
-//    private String  basicUserType ENUM('Customer', 'Admin') ;
 }
 

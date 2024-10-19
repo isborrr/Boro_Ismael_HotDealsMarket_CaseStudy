@@ -1,6 +1,5 @@
 package com.ismaelboro.hotdealsmarket.controller;
 
-
 import com.ismaelboro.hotdealsmarket.model.BasicUser;
 import com.ismaelboro.hotdealsmarket.service.BasicUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
-public class BasicUserControler {
+public class BasicUserController {
     @Autowired
     private BasicUserService basicUserService;
 

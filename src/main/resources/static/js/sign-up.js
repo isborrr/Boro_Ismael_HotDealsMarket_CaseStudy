@@ -54,8 +54,3 @@ form.addEventListener('submit', function (event) {
         this.submit(); // Submit the form manually after successful validation
     }
 });
-
-//
-// document.getElementById("backToHomeBtn").addEventListener("click", function() {
-// });
-

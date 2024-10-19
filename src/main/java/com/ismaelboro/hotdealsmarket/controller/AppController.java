@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -49,7 +48,7 @@ public class AppController {
     @PostMapping("/sign-up")
     public String signup(BasicUser basicUser) {
         // Save the user
-        basicUser.setRole(Role.CUSTOMER);
+        basicUser.setRole(Role.ADMIN);
         basicUserService.crateUser(basicUser);
         return "redirect:/sign-in"; // Redirect to login page after signup
     }
@@ -146,32 +145,6 @@ public class AppController {
         return "completed-order"; // Thymeleaf template name
     }
 
-//
-    // delete commented code bellow
-
-//    @PostMapping("/sign-up")
-//    public String signup(BasicUser basicUser) {
-//        // Save the user
-//        basicUser.setBasicUserType(BasicUserType.Customer);
-//        basicUserService.crateUser(basicUser);
-//        return "redirect:/sign-in"; // Redirect to login page after signup
-//    }
-
-//    post add cart buy now
-
-    //add To Cat
-//@PostMapping("/user/{id}/cart-items")
-//public void addToCart(@RequestParam Long customerId, @RequestParam Long productId, @RequestParam int quantity) {
-////        quantity = 1;
-//    cartService.addToCart(customerId, productId, quantity, ReceivingStatus.Processed);
-//}
-//
-//    //Buy now
-//    @PostMapping("/buy-now")
-//    public void buyNow(@RequestParam Long customerId, @RequestParam Long productId, @RequestParam int quantity) {
-//        cartService.addToCart(customerId, productId, quantity, ReceivingStatus.Shipped);
-//    }
-
 
     @PostMapping("/add-to-cart")
     public String addToCart(@RequestParam("productId") Long productId, @RequestParam("customerId") Long customerId, Model model) {
@@ -191,15 +164,5 @@ public class AppController {
         cartService.addToCart(customerId, productId, ReceivingStatus.Shipped);
         return "redirect:/user/" + customerId + "/cart-items";
     }
-
-
-//    @GetMapping("/user/cart-items/{id}")
-//    public String getCartItemsByCustomerId(@PathVariable Long customerId, Model model) {
-//        List<CartItem> cartItems = cartItemService.getCartItemsByCustomerId(customerId);
-//        model.addAttribute("cartItems", cartItems);
-//        model.addAttribute("customerId", customerId);
-//
-//        return "cart-items"; // Name of my  Thymeleaf template
-//    }
 
 }

@@ -1,10 +1,7 @@
 package com.ismaelboro.hotdealsmarket.controller;
 
-
 import com.ismaelboro.hotdealsmarket.model.Cart;
-import com.ismaelboro.hotdealsmarket.model.Product;
 import com.ismaelboro.hotdealsmarket.service.CartService;
-import com.ismaelboro.hotdealsmarket.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,11 +41,10 @@ public class CartController {
         Cart cart = cartService.updateCart(id, updatedCart);
         return ResponseEntity.ok(cart);
     }
-    //note fron intructor
+    //note from instructor
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCart(@PathVariable Long id) {
         cartService.deleteCart(id);
         return new ResponseEntity<>("Cart has been deleted ",HttpStatus.OK);
-//        return ResponseEntity.noContent().build();  // HTTP 204 No Content   // from instructor
     }
 }

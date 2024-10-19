@@ -40,7 +40,7 @@ public class ProductController {
         Product product = productService.updateProduct(id, updatedProduct);
         return ResponseEntity.ok(product);
     }
-//note fron intructor
+//note from instructor
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);

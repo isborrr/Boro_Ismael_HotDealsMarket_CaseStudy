@@ -1,6 +1,5 @@
 package com.ismaelboro.hotdealsmarket.controller;
 
-
 import com.ismaelboro.hotdealsmarket.model.CartItem;
 import com.ismaelboro.hotdealsmarket.service.CartItemService;
 import org.springframework.beans.factory.annotation.Autowired;
