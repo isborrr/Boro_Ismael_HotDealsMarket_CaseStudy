@@ -9,7 +9,7 @@ The project is built with features for product management, user registration, an
 
 <h3>Features</h3>
 <h4>1. Home Page (Non-Registered User)</h4>
-<ul>Returned Model:</u> Displays a list of available products.
+Returned Model: Displays a list of available products.
 <ul>Category Filtration:</ul> Users can filter products based on categories. 
 If the selected category does not have products, the message "We are out of stock" is shown.
 <ul>Add-to-Cart:</ul> Displays an add-to-cart option for products.
